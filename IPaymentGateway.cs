@@ -117,5 +117,13 @@ namespace Plexo
         Task<ServerResponse<Transaction>> CodeAction(CodeRequest request);
 
         #endregion
+
+        #region Backoffice Cancelation
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "Backoffice/Cancel", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "POST")]
+        Task<ServerResponse<Transaction>> BackofficeCancel(string transactionid);
+
+        #endregion
     }
 }

@@ -118,11 +118,19 @@ namespace Plexo
 
         #endregion
 
-        #region VerificationCodes
+        #region VerificationCodes - Issuer Key Required
 
         [OperationContract]
         [WebInvoke(UriTemplate = "Code", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "POST")]
         Task<ServerSignedResponse<Transaction>> CodeAction(IssuerSignedRequest<CodeRequest> request);
+
+        #endregion
+
+        #region Backoffice Cancelation - Backoffice Key Required
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "Backoffice/Cancel", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, Method = "POST")]
+        Task<ServerSignedResponse<Transaction>> BackofficeCancel(SignedObject<string> request);
 
         #endregion
 
